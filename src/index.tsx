@@ -1,7 +1,20 @@
-import * as React from "react";
-import { render } from "react-dom";
-import App from "./components/App";
+import * as React from "react"
+import { render } from "react-dom"
+import { createGlobalStyle } from "styled-components"
 
-const rootEl = document.getElementById("root");
+import App from "./components/App"
 
-render(<App />, rootEl);
+const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+  }
+`
+
+render(
+  <>
+    <GlobalStyle />
+    <App />
+  </>,
+  document.getElementById("root"),
+)
