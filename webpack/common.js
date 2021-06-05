@@ -6,7 +6,7 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
-  context: resolve(__dirname, "../../src"),
+  context: resolve(__dirname, "../src"),
   module: {
     rules: [
       {
@@ -39,4 +39,7 @@ module.exports = {
   performance: {
     hints: false,
   },
+  stats: {
+    children: true
+  }
 };
