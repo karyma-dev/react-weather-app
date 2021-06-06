@@ -4,11 +4,7 @@
     "@babel/preset-react",
     "@babel/preset-typescript"
   ],
-  "env": {
-    "production": {
-      "presets": [
-        "minify"
-      ]
-    }
-  }
+  "plugins": [
+    "@babel/plugin-proposal-class-properties"
+  ]
 }

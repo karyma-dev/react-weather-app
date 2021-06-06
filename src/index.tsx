@@ -1,8 +1,8 @@
-import * as React from "react"
-import { render } from "react-dom"
-import { createGlobalStyle } from "styled-components"
+import * as React from 'react'
+import { render } from 'react-dom'
+import { createGlobalStyle } from 'styled-components'
 
-import App from "./App"
+import App from './App'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -14,9 +14,9 @@ const GlobalStyle = createGlobalStyle`
 `
 
 render(
-  <>
-    <GlobalStyle />
-    <App />
-  </>,
-  document.getElementById("root"),
+    <>
+        <GlobalStyle />
+        <App />
+    </>,
+    document.getElementById('root')
 )
