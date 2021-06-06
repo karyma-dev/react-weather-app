@@ -1,5 +1,10 @@
 import React from "react"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom"
 import styled from "styled-components"
 
 import HomePage from "./pages/HomePage"
@@ -13,8 +18,9 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/weather" component={WeatherPage} />
+        <Route exact path="/forecast/:country/:city" component={WeatherPage} />
         <Route path="/" component={HomePage} />
+        <Route component={HomePage} />
       </Switch>
     </Router>
   )

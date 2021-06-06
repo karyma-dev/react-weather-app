@@ -1,4 +1,5 @@
 import React from "react"
+import { useHistory } from "react-router-dom"
 import styled from "styled-components"
 import SearchIcon from "../assets/icons/SearchIcon"
 
@@ -16,9 +17,11 @@ const Input = styled.input`
 `
 
 const SearchBar = () => {
+  let history = useHistory()
   const onSubmit = (e) => {
     e.preventDefault()
-    console.log(e)
+
+    history.push("/forecast/ca/vancouver")
   }
 
   return (
