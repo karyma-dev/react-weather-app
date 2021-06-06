@@ -1,12 +1,12 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     mode: 'development',
     entry: {
         app: path.join(__dirname, 'src', 'index.tsx'),
     },
-    target: 'web',
     resolve: {
         extensions: ['.ts', '.tsx', '.js', 'jsx', 'json'],
     },
@@ -19,25 +19,24 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
+                // exclude: /\.test.tsx?$/,
                 use: 'ts-loader',
                 exclude: '/node_modules/',
             },
             {
                 test: /\.(png|jpe?g|gif)$/i,
                 use: [
-                    {
-                        loader: 'file-loader',
-                    },
+                {
+                    loader: 'file-loader',
+                },
                 ],
             },
         ],
-    },
-    devServer: {
-        historyApiFallback: true,
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src', 'index.html'),
         }),
+        new CleanWebpackPlugin()
     ],
 }
