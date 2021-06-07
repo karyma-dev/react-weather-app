@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
-import { countries } from '../assets/countries'
+import React, { useState, FC, Dispatch, SetStateAction } from 'react'
+import { countries } from '../../assets/countries'
 
-const CountryDropdown = () => {
-    const [country, changeCountry] = useState('CA')
-
+const CountryDropdown: FC<Props> = ({ country, changeCountry }) => {
     const countryCodesOption = countries.map((country) => {
         return (
             <option key={country.code} value={country.code}>
@@ -20,6 +18,11 @@ const CountryDropdown = () => {
             {countryCodesOption}
         </select>
     )
+}
+
+type Props = {
+    country: string
+    changeCountry: Dispatch<SetStateAction<string>>
 }
 
 export default CountryDropdown

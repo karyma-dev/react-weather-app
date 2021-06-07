@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
-import SearchIcon from '../assets/icons/SearchIcon'
+import SearchIcon from '../../assets/icons/SearchIcon'
 import CountryDropdown from './CountryDropdown'
 
 const Form = styled.form`
@@ -19,6 +19,8 @@ const Input = styled.input`
 `
 
 const SearchBar = () => {
+    const [country, changeCountry] = useState('CA')
+
     const history = useHistory()
     const onSubmit = (e: any) => {
         e.preventDefault()
@@ -32,7 +34,7 @@ const SearchBar = () => {
                 <Input placeholder="Enter your city" />
                 <SearchIcon />
             </Form>
-            <CountryDropdown />
+            <CountryDropdown country={country} changeCountry={changeCountry} />
         </>
     )
 }
