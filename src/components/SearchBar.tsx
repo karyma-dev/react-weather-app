@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
-import axios from 'axios'
 
 import SearchIcon from '../assets/icons/SearchIcon'
 import CountryDropdown from './CountryDropdown'
@@ -28,11 +27,13 @@ const SearchBar = () => {
     }
 
     return (
-        <Form onSubmit={onSubmit}>
-            <Input placeholder="Enter your city" />
-            <SearchIcon />
+        <>
+            <Form onSubmit={onSubmit}>
+                <Input placeholder="Enter your city" />
+                <SearchIcon />
+            </Form>
             <CountryDropdown />
-        </Form>
+        </>
     )
 }
 
