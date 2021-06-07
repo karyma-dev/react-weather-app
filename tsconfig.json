@@ -8,7 +8,6 @@
     "noResolve": false,
     "esModuleInterop": true,
     "removeComments": true,
-    "sourceMap": true,
     "moduleResolution": "node",
     "strict": true
   }
