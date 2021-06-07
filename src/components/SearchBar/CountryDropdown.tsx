@@ -1,7 +1,7 @@
 import React, { useState, FC, Dispatch, SetStateAction } from 'react'
 import { countries } from '../../assets/countries'
 
-const CountryDropdown: FC<Props> = ({ country, changeCountry }) => {
+const CountryDropdown: FC<Props> = ({ country, setCountry }) => {
     const countryCodesOption = countries.map((country) => {
         return (
             <option key={country.code} value={country.code}>
@@ -11,7 +11,7 @@ const CountryDropdown: FC<Props> = ({ country, changeCountry }) => {
     })
 
     return (
-        <select value={country} onChange={(e) => changeCountry(e.target.value)}>
+        <select value={country} onChange={(e) => setCountry(e.target.value)}>
             <option value={country} disabled hidden>
                 {country}
             </option>
@@ -22,7 +22,7 @@ const CountryDropdown: FC<Props> = ({ country, changeCountry }) => {
 
 type Props = {
     country: string
-    changeCountry: Dispatch<SetStateAction<string>>
+    setCountry: Dispatch<SetStateAction<string>>
 }
 
 export default CountryDropdown
