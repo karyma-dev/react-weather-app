@@ -1,7 +1,12 @@
-import React from "react"
+import React from 'react'
+import Background from '../components/Background'
 
-const WeatherPage = () => {
-  return <h1>WeatherPage</h1>
+const WeatherPage = ({ match }: any) => {
+    const { country, city } = match.params
+
+    console.log({ country, city })
+
+    return <Background>Weather Page</Background>
 }
 
 export default WeatherPage
