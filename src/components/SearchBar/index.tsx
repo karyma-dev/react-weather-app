@@ -11,14 +11,6 @@ const Form = styled.form`
     border-bottom: 2px solid white;
 `
 
-const Input = styled.input`
-    background-color: transparent;
-    border: none;
-    outline: none;
-    font-size: 20px;
-    color: white;
-`
-
 const SearchBar = () => {
     const [country, setCountry] = useState('CA')
     const [city, setCity] = useState('')
@@ -33,7 +25,7 @@ const SearchBar = () => {
     return (
         <>
             <Form onSubmit={onSubmit}>
-                <Autocomplete country={country} />
+                <Autocomplete country={country} setCity={setCity} />
                 <SearchIcon />
             </Form>
             <CountryDropdown country={country} setCountry={setCountry} />
