@@ -1,10 +1,10 @@
 import React, { useState, FC, Dispatch, SetStateAction } from 'react'
-import { countries } from '../../assets/countries'
+import csc from 'country-state-city'
 
 const CountryDropdown: FC<Props> = ({ country, setCountry }) => {
-    const countryCodesOption = countries.map((country) => {
+    const countryCodesOption = csc.getAllCountries().map((country) => {
         return (
-            <option key={country.code} value={country.code}>
+            <option key={country.isoCode} value={country.isoCode}>
                 {country.name}
             </option>
         )
