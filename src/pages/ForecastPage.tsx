@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Background from '../components/Background'
 import Weather from '../components/Weather'
-import getCurrentWeather from '../API/getCurrentWeather'
-import getDailyWeather from '../API/getDailyWeather'
+import getCurrentWeather from '../api/getCurrentWeather'
+import getDailyWeather from '../api/getDailyWeather'
 
 const WeatherPage = ({ match }: any) => {
     const { city, country } = match.params
