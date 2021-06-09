@@ -3,7 +3,7 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import styled from 'styled-components'
 
 import HomePage from './pages/HomePage'
-import WeatherPage from './pages/WeatherPage'
+import ForecastPage from './pages/ForecastPage'
 
 const Container = styled.div`
     background-color: black;
@@ -13,7 +13,7 @@ const App = () => {
     return (
         <Router>
             <Switch>
-                <Route exact path="/forecast/:country/:city" component={WeatherPage} />
+                <Route exact path="/forecast/:country/:city" component={ForecastPage} />
                 <Route path="/" component={HomePage} />
                 <Route component={HomePage} />
             </Switch>
