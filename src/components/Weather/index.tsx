@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react'
 
 const Weather = ({ currentWeather, dailyWeather }: any) => {
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        if (currentWeather && dailyWeather) {
-            setLoading(false)
-        }
-    }, [currentWeather, dailyWeather])
-
-    return loading ? <h1>Loading</h1> : <h1>Weather</h1>
+    const { name, main, weather, wind } = currentWeather
+    const { temp, temp_max, temp_min, humidity } = main
+    // const date = new Date(current.dt * 1000)
+    // console.log(date.toLocaleTimeString())
+    // console.log(date.toDateString())
+    return <></>
 }
 
 export default Weather

@@ -6,8 +6,10 @@ import getDailyWeather from '../api/getDailyWeather'
 
 const WeatherPage = ({ match }: any) => {
     const { city, country } = match.params
+    const [loading, setLoading] = useState(true)
     const [currentWeather, setCurrentWeather] = useState(null)
     const [dailyWeather, setDailyWeather] = useState(null)
+
     useEffect(() => {
         getCurrentWeather(city, country).then(({ data }) => {
             const { lat, lon } = data.coord
@@ -16,9 +18,15 @@ const WeatherPage = ({ match }: any) => {
         })
     }, [])
 
+    useEffect(() => {
+        if (currentWeather && dailyWeather) {
+            setLoading(false)
+        }
+    }, [currentWeather, dailyWeather])
+
     return (
         <Background>
-            <Weather currentWeather={currentWeather} dailyWeather={dailyWeather} />
+            {loading ? <h1>Loading</h1> : <Weather currentWeather={currentWeather} dailyWeather={dailyWeather} />}
         </Background>
     )
 }
