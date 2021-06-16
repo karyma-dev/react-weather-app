@@ -1,5 +1,15 @@
 import React, { useState, FC, Dispatch, SetStateAction } from 'react'
+import styled from 'styled-components'
 import csc from 'country-state-city'
+
+const Dropdown = styled.select`
+    background: transparent;
+    border: none;
+    width: 50px;
+    outline: none;
+    font-size: 1rem;
+    margin-left: 10px;
+`
 
 const CountryDropdown: FC<Props> = ({ country, setCountry }) => {
     const countryCodesOption = csc.getAllCountries().map((country) => {
@@ -11,12 +21,12 @@ const CountryDropdown: FC<Props> = ({ country, setCountry }) => {
     })
 
     return (
-        <select value={country} onChange={(e) => setCountry(e.target.value)}>
+        <Dropdown value={country} onChange={(e) => setCountry(e.target.value)}>
             <option value={country} disabled hidden>
                 {country}
             </option>
             {countryCodesOption}
-        </select>
+        </Dropdown>
     )
 }
 

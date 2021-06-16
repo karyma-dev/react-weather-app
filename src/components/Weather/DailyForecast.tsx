@@ -1,16 +1,31 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
+import WeatherIcon from '../../assets/icons'
 
 const Container = styled.div``
 const Days = styled.ul`
     list-style: none;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin: 20px 0;
 `
 
 const Info = styled.li`
     font-weight: 300;
+`
+
+const Icon = styled.img`
+    width: 30px;
+`
+
+const InfoContainer = styled.div`
+    width: 50px;
+    display: flex;
+    align-items: center;
+
+    &:last-of-type {
+        text-align: end;
+    }
 `
 
 const DailyForecast: FC<Props> = ({ dailyForecast }) => {
@@ -23,9 +38,13 @@ const DailyForecast: FC<Props> = ({ dailyForecast }) => {
 
         return (
             <Days key={i}>
-                <Info>{daysOfTheWeek[date.getDay()]}</Info>
-                <Info>{weather[0].main}</Info>
-                <Info>{Math.round(temp.day)} &deg;C</Info>
+                <InfoContainer>
+                    <Info>{daysOfTheWeek[date.getDay()]}</Info>
+                </InfoContainer>
+                <Icon src={WeatherIcon[weather[0].main]} />
+                <InfoContainer>
+                    <Info>{Math.round(temp.day)}&deg;</Info>
+                </InfoContainer>
             </Days>
         )
     })

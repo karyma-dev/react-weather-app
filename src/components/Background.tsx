@@ -12,8 +12,12 @@ const Container = styled.div`
     align-items: center;
 `
 
-const Background = (props: any) => {
-    return <Container>{props.children}</Container>
+const Background = (children: Props) => {
+    return <Container>{children}</Container>
+}
+
+type Props = {
+    children: JSX.Element
 }
 
 export default Background

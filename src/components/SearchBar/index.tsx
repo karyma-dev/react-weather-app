@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, SyntheticEvent } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
 import Autocomplete from './Autocomplete'
-import SearchIcon from '../../assets/icons/SearchIcon'
+import SearchIcon from '../../assets/svg/SearchIcon'
 import CountryDropdown from './CountryDropdown'
 
 const Form = styled.form`
-    padding: 5px 0;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid black;
+    display: flex;
+    align-items: center;
 `
 
 const SearchBar = () => {
@@ -16,7 +17,7 @@ const SearchBar = () => {
     const [city, setCity] = useState('')
 
     const history = useHistory()
-    const onSubmit = (e: any) => {
+    const onSubmit = (e: SyntheticEvent) => {
         e.preventDefault()
 
         history.push(`/forecast/${country}/${city}`)
@@ -26,7 +27,7 @@ const SearchBar = () => {
         <>
             <Form onSubmit={onSubmit}>
                 <Autocomplete country={country} setCity={setCity} />
-                <SearchIcon />
+                <SearchIcon onSubmit={onSubmit} />
             </Form>
             <CountryDropdown country={country} setCountry={setCountry} />
         </>
