@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import _ from 'lodash'
 import styled from 'styled-components'
 import DailyForecast from './DailyForecast'
 import HourlyForecast from './HourlyForecast'
@@ -6,6 +7,32 @@ import HourlyForecast from './HourlyForecast'
 const Container = styled.div`
     display: flex;
     flex-direction: column;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 50px;
+`
+
+const Main = styled.div``
+const Title = styled.h1`
+    font-size: 3rem;
+    text-align: center;
+    font-weight: 400;
+`
+const Description = styled.h2`
+    text-align: center;
+    font-weight: 300;
+`
+const TempContainer = styled.div`
+    display: flex;
+    align-items: center;
+`
+const Temp = styled.p`
+    font-size: 5rem;
+    font-weight: 100;
+    margin: 0 20px;
+`
+const SmallTemp = styled.p`
+    font-weight: 300;
 `
 
 const Weather = ({ currentWeather, dailyWeather }: any) => {
@@ -15,15 +42,18 @@ const Weather = ({ currentWeather, dailyWeather }: any) => {
 
     return (
         <Container>
-            <div>
-                <h1>{name}</h1>
-                <p>{weather[0].description}</p>
-                <div>
-                    <p>{Math.round(temp_min)}</p>
-                    <p>{Math.round(temp)} &deg;C</p>
-                    <p>{Math.round(temp_max)}</p>
-                </div>
-            </div>
+            <Main>
+                <Title>{name}</Title>
+                <Description>{_.startCase(weather[0].description)}</Description>
+                <TempContainer>
+                    <SmallTemp>{Math.round(temp_min)}&deg;</SmallTemp>
+                    <Temp>
+                        {Math.round(temp)}
+                        &deg;
+                    </Temp>
+                    <SmallTemp>{Math.round(temp_max)}&deg;</SmallTemp>
+                </TempContainer>
+            </Main>
             <HourlyForecast hourlyForecast={hourly} />
             <DailyForecast dailyForecast={daily} />
         </Container>

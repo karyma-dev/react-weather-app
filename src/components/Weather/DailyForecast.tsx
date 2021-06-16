@@ -10,7 +10,7 @@ const DailyForecast: FC<Props> = ({ dailyForecast }) => {
             <ul key={i}>
                 <li>{daysOfTheWeek[date.getDay()]}</li>
                 <li>{forecast.weather[0].main}</li>
-                <li>{forecast.temp.day}</li>
+                <li>{forecast.temp.day} &deg;C</li>
             </ul>
         )
     })
