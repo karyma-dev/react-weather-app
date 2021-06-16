@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react'
+import DailyForecast from './DailyForecast'
+import HourlyForecast from './HourlyForecast'
 
 const Weather = ({ currentWeather, dailyWeather }: any) => {
     const { name, main, weather, wind } = currentWeather
     const { temp, temp_max, temp_min, humidity } = main
-    // const date = new Date(current.dt * 1000)
-    // console.log(date.toLocaleTimeString())
-    // console.log(date.toDateString())
-    return <></>
+    const { hourly, daily } = dailyWeather
+
+    return (
+        <>
+            <HourlyForecast hourlyForecast={hourly} />
+            <DailyForecast dailyForecast={daily} />
+        </>
+    )
 }
 
 export default Weather
