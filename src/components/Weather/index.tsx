@@ -25,6 +25,7 @@ const Description = styled.h2`
 const TempContainer = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
 `
 const Temp = styled.p`
     font-size: 5rem;

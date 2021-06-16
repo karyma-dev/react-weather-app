@@ -1,18 +1,36 @@
 import React, { FC } from 'react'
+import styled from 'styled-components'
+
+const Container = styled.div`
+    display: flex;
+`
+
+const DateContainer = styled.ul`
+    list-style: none;
+    text-align: center;
+    margin: 0 20px;
+`
+
+const Time = styled.li`
+    font-weight: 300;
+`
 
 const HourlyForecast: FC<Props> = ({ hourlyForecast }) => {
-    const slicedForecast = hourlyForecast.slice(0, 5)
+    const slicedForecast = hourlyForecast.slice(1, 6)
 
     const mapHourlyForecast = slicedForecast.map((forecast, i) => {
-        const date = new Date(forecast.dt * 1000)
+        const { dt, temp, weather } = forecast
+        const date = new Date(dt * 1000)
         return (
-            <ul key={i}>
-                <li>{date.toLocaleTimeString(undefined, { hour: '2-digit' })}</li>
-            </ul>
+            <DateContainer key={i}>
+                <Time>{date.toLocaleTimeString(undefined, { hour: '2-digit' })}</Time>
+                <Time>{weather[0].main}</Time>
+                <Time>{Math.round(temp)}&deg;</Time>
+            </DateContainer>
         )
     })
 
-    return <div>{mapHourlyForecast}</div>
+    return <Container>{mapHourlyForecast}</Container>
 }
 
 type Props = {
