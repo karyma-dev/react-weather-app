@@ -4,12 +4,15 @@ import WeatherIcon from '../../assets/icons'
 
 const Container = styled.div`
     display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
 `
 
 const Hours = styled.ul`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     list-style: none;
-    text-align: center;
-    margin: 0 20px;
 `
 
 const Time = styled.li`
@@ -21,15 +24,16 @@ const Icon = styled.img`
 `
 
 const HourlyForecast: FC<Props> = ({ hourlyForecast }) => {
-    const slicedForecast = hourlyForecast.slice(1, 8)
+    const slicedForecast = hourlyForecast.slice(1, 7)
 
     const mapHourlyForecast = slicedForecast.map((forecast, i) => {
         const { dt, temp, weather } = forecast
         const date = new Date(dt * 1000)
-        // parseInt(date.toLocaleTimeString(undefined, { hour: '2-digit' }), 10)
+        const hour = date.toLocaleTimeString(undefined, { hour: '2-digit' }).replace(/^0+/, '')
 
         return (
             <Hours key={i}>
+                <Time>{hour}</Time>
                 <Icon src={WeatherIcon[weather[0].main]} alt="weather icon" />
                 <Time>{Math.round(temp)}&deg;</Time>
             </Hours>

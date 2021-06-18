@@ -2,7 +2,7 @@ import React, { FC, Dispatch, SetStateAction } from 'react'
 import styled from 'styled-components'
 
 const Svg = styled.svg`
-    fill: black;
+    fill: white;
     cursor: pointer;
     height: 20px;
 

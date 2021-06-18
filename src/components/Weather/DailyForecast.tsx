@@ -21,10 +21,9 @@ const Icon = styled.img`
 const InfoContainer = styled.div`
     width: 50px;
     display: flex;
-    align-items: center;
 
     &:last-of-type {
-        text-align: end;
+        justify-content: flex-end;
     }
 `
 

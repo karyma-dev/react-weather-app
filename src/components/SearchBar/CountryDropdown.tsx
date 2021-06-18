@@ -9,6 +9,14 @@ const Dropdown = styled.select`
     outline: none;
     font-size: 1rem;
     margin-left: 10px;
+    color: white;
+
+    & option {
+        color: black;
+        font-size: 1rem;
+        font-weight: 400;
+        padding: 5px 2px;
+    }
 `
 
 const CountryDropdown: FC<Props> = ({ country, setCountry }) => {

@@ -10,6 +10,7 @@ const Container = styled.div`
     background: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 50px;
+    width: 500px;
 `
 
 const Main = styled.div``

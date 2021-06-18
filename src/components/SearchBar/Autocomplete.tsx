@@ -9,6 +9,11 @@ const Input = styled.input`
     outline: none;
     padding: 5px 0;
     font-size: 1rem;
+    color: white;
+
+    &::placeholder {
+        color: white;
+    }
 `
 
 const Menu = styled.ul`
@@ -22,7 +27,8 @@ const Menu = styled.ul`
 `
 
 const MenuItem = styled.li`
-    padding: 5px 2px;
+    padding: 2px;
+    font-size: 1rem;
     &:hover {
         background-color: lightgray;
     }

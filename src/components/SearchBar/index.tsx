@@ -7,7 +7,7 @@ import SearchIcon from '../../assets/svg/SearchIcon'
 import CountryDropdown from './CountryDropdown'
 
 const Form = styled.form`
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid white;
     display: flex;
     align-items: center;
 `

@@ -12,7 +12,7 @@ const Container = styled.div`
     align-items: center;
 `
 
-const Background = (children: Props) => {
+const Background = ({ children }: Props) => {
     return <Container>{children}</Container>
 }
 
