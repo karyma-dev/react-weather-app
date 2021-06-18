@@ -32,7 +32,7 @@ const WeatherPage = ({ match }: any) => {
         return <Redirect to="/" />
     } else {
         return (
-            <Background>
+            <Background currentWeather={currentWeather}>
                 {loading ? <h1>Loading</h1> : <Weather currentWeather={currentWeather} dailyWeather={dailyWeather} />}
             </Background>
         )
