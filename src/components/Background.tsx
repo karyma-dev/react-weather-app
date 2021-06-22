@@ -16,9 +16,13 @@ const Container = styled.div`
 
 const Background = ({ children, weather }: Props) => {
     if (weather) {
-        return <Container bg={weather}>{children}</Container>
+        return (
+            <Container bg={weather} data-testid="background">
+                {children}
+            </Container>
+        )
     } else {
-        return <Container>{children}</Container>
+        return <Container data-testid="background">{children}</Container>
     }
 }
 
