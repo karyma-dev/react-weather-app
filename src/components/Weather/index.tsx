@@ -3,6 +3,7 @@ import _ from 'lodash'
 import styled from 'styled-components'
 import DailyForecast from './DailyForecast'
 import HourlyForecast from './HourlyForecast'
+import { ICurrentWeather, IDailyWeather } from '../../types'
 
 const Container = styled.div`
     display: flex;
@@ -37,7 +38,7 @@ const SmallTemp = styled.p`
     font-weight: 300;
 `
 
-const Weather = ({ currentWeather, dailyWeather }: any) => {
+const Weather: React.FC<Props> = ({ currentWeather, dailyWeather }) => {
     const { name, main, weather } = currentWeather
     const { temp, temp_max, temp_min } = main
     const { hourly, daily } = dailyWeather
@@ -60,6 +61,11 @@ const Weather = ({ currentWeather, dailyWeather }: any) => {
             <DailyForecast dailyForecast={daily} />
         </Container>
     )
+}
+
+type Props = {
+    currentWeather: ICurrentWeather
+    dailyWeather: IDailyWeather
 }
 
 export default Weather

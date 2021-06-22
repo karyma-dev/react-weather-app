@@ -4,33 +4,31 @@ import HomeImage from '../assets/background/Home.jpg'
 import BackgroundImage from '../assets/background'
 
 const Container = styled.div`
-    background: #ffffff url(${(props: scProps) => (props.bg ? BackgroundImage[props.bg] : HomeImage)}) no-repeat center
-        center;
+    background: #ffffff url(${(props: styledComponentProps) => (props.bg ? BackgroundImage[props.bg] : HomeImage)})
+        no-repeat center center;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 `
 
-const Background = ({ children, currentWeather }: Props) => {
-    if (currentWeather) {
-        const { weather } = currentWeather
-
-        return <Container bg={weather[0].main}>{children}</Container>
+const Background = ({ children, weather }: Props) => {
+    if (weather) {
+        return <Container bg={weather}>{children}</Container>
     } else {
-        return <Container bg={null}>{children}</Container>
+        return <Container>{children}</Container>
     }
 }
 
 type Props = {
     children: JSX.Element
-    currentWeather: any
+    weather?: string
 }
 
-type scProps = {
-    bg: string | null
+type styledComponentProps = {
+    bg?: string
 }
 
 export default Background

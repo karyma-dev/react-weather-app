@@ -4,13 +4,14 @@ import Background from '../components/Background'
 import Weather from '../components/Weather'
 import getCurrentWeather from '../api/getCurrentWeather'
 import getDailyWeather from '../api/getDailyWeather'
+import { ICurrentWeather, IDailyWeather } from '../types'
 
 const WeatherPage = ({ match }: any) => {
     const { city, country } = match.params
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(true)
-    const [currentWeather, setCurrentWeather] = useState(null)
-    const [dailyWeather, setDailyWeather] = useState(null)
+    const [currentWeather, setCurrentWeather] = useState<ICurrentWeather>()
+    const [dailyWeather, setDailyWeather] = useState<IDailyWeather>()
 
     useEffect(() => {
         getCurrentWeather(city, country)
@@ -32,8 +33,8 @@ const WeatherPage = ({ match }: any) => {
         return <Redirect to="/" />
     } else {
         return (
-            <Background currentWeather={currentWeather}>
-                {loading ? <h1>Loading</h1> : <Weather currentWeather={currentWeather} dailyWeather={dailyWeather} />}
+            <Background weather={currentWeather?.weather[0].main}>
+                {loading ? <h1>Loading</h1> : <Weather currentWeather={currentWeather!} dailyWeather={dailyWeather!} />}
             </Background>
         )
     }
