@@ -14,7 +14,7 @@ module.exports = {
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/',
+        publicPath: './',
     },
     module: {
         rules: [
@@ -26,11 +26,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif)$/i,
-                use: [
-                {
-                    loader: 'file-loader',
-                },
-                ],
+                type: 'asset/resource',
             },
         ],
     },
@@ -38,7 +34,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src', 'index.html'),
-        }), 
+        }),
         new Dotenv(),
     ],
 }
