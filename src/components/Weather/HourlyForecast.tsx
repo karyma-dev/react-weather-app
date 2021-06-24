@@ -16,6 +16,7 @@ const Hours = styled.ul`
 `
 
 const Time = styled.li`
+    font-size: 1rem;
     font-weight: 300;
 `
 

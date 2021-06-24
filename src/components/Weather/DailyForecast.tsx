@@ -11,6 +11,7 @@ const Days = styled.ul`
 `
 
 const Info = styled.li`
+    font-size: 1rem;
     font-weight: 300;
 `
 
