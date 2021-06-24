@@ -29,8 +29,8 @@ const CountryDropdown: FC<Props> = ({ country, setCountry }) => {
     })
 
     return (
-        <Dropdown value={country} onChange={(e) => setCountry(e.target.value)}>
-            <option value={country} disabled hidden>
+        <Dropdown data-testid="dropdown" value={country} onChange={(e) => setCountry(e.target.value)}>
+            <option value={country} disabled hidden data-testid="dropdown-item">
                 {country}
             </option>
             {countryCodesOption}
@@ -44,13 +44,3 @@ type Props = {
 }
 
 export default CountryDropdown
-
-// navigator.geolocation.getCurrentPosition((location) => {
-//     const { latitude, longitude } = location.coords
-
-//     axios
-//         .get(
-//             `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=5&appid=${api_key}`
-//         )
-//         .then((res) => console.log(res))
-// })
