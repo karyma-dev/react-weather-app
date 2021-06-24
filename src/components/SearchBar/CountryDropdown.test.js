@@ -9,7 +9,3 @@ test('Dropdown should contain dropdown items', () => {
   const dropdownItemEl = getByTestId('dropdown-item')
   expect(dropdownEl).toContainElement(dropdownItemEl)
 })
-
-test('', () => {
-
-})
